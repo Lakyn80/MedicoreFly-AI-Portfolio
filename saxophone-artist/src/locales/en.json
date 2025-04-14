@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "name": "Adam Nukorev",
+    "title": "Saxophonist | Performer | Composer",
+    "button": "Listen"
+  },
+  "music": {
+    "title": "Music",
+    "description": "Enjoy live recordings and studio tracks by Adam Nukorev.",
+    "audio_not_supported": "Your browser does not support audio playback."
+  },
+  "about": {
+    "title": "About Me",
+    "text": "Adam Nukorev is a distinguished saxophonist blending classical elegance with modern expression. His performances are live stories told through music. He has performed on prestigious stages across Europe and earned wide acclaim."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Submit a performance request or contact directly.",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Thank you! Your message has been sent."
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "nav": {
+    "about": "About",
+    "music": "Music",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "footer": "© 2025 Adam Nukorev"
+}
