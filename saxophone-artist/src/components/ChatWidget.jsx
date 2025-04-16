@@ -1,12 +1,10 @@
-// ✅ MODERNÍ CHAT WIDGET
-// Umísti do: src/components/ChatWidget.jsx
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiSend, FiX, FiMessageSquare } from "react-icons/fi";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
+  const [showButton, setShowButton] = useState(true);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,9 +36,16 @@ export default function ChatWidget() {
     }
   };
 
+  const handleClose = () => {
+    setOpen(false);
+    setShowButton(false);
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <AnimatePresence>
+      <AnimatePresence
+        onExitComplete={() => setShowButton(true)}
+      >
         {open && (
           <motion.div
             key="chat"
@@ -53,7 +58,7 @@ export default function ChatWidget() {
             {/* Header */}
             <div className="flex justify-between items-center px-4 py-2 bg-emerald-600 text-white rounded-t-xl">
               <span className="font-medium">🎷 Ask Adam's AI</span>
-              <button onClick={() => setOpen(false)}>
+              <button onClick={handleClose}>
                 <FiX className="text-xl" />
               </button>
             </div>
@@ -68,8 +73,8 @@ export default function ChatWidget() {
                   transition={{ duration: 0.3 }}
                   className={`p-2 rounded-lg max-w-[85%] break-words ${
                     msg.role === "user"
-                      ? "ml-auto bg-emerald-100 text-black" // ✅ klientova bublina
-                      : "mr-auto bg-gray-200 dark:bg-gray-300 text-black" // ✅ AI bublina
+                      ? "ml-auto bg-emerald-100 text-black"
+                      : "mr-auto bg-gray-200 dark:bg-gray-300 text-black"
                   }`}
                 >
                   {msg.content}
@@ -107,8 +112,8 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* Toggle Button */}
-      {!open && (
+      {/* Open Button */}
+      {showButton && !open && (
         <motion.button
           onClick={() => setOpen(true)}
           initial={{ opacity: 0, scale: 0.5 }}
