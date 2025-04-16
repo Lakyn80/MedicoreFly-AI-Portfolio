@@ -6,24 +6,31 @@
   },
   "music": {
     "title": "Musik",
-    "description": "Genießen Sie Live-Aufnahmen und Studio-Tracks von Adam Nukorev.",
+    "description": "Genießen Sie Live-Auftritte und Studioaufnahmen von Adam Nukorev.",
     "audio_not_supported": "Ihr Browser unterstützt keine Audiowiedergabe."
   },
   "about": {
     "title": "Über mich",
-    "text": "MedicoreFly - Saxophonist, Multiinstrumentalist, Sessionmusiker. Ein Mensch, der sich der Musik zu 100 % verschrieben hat, begeistert seine Zuhörer mit einer Welle aus Groove und Stil, indem er instrumentale Kompositionen in den Genres Groove Funk, Jazz Standard, Acid Jazz, Lounge, RnB, City Pop, Blues und mehr spielt. Beim Saxophonspiel entdeckt er in jeder Komposition eine neue Facette des Musikempfindens, ohne sich im musikalischen Raum einzuschränken, jede Melodie neu zu interpretieren und jeden Track einzigartig zu machen. Das Repertoire von mFly ist ein vollständiger Ausdruck seines Musikgeschmacks und seiner Playlist mit Lieblingsliedern, die ihn auf seinem kreativen Weg inspirieren, denn die Hauptbotschaft der Musik von mFly ist es, die Schönheit mit der Welt zu teilen und man selbst zu sein."
+    "text": {
+      "part1": "MedicoreFly ist Saxophonist, Multiinstrumentalist und Sessionmusiker. Ein Mensch, der sich ganz der Musik verschrieben hat – er überflutet seine Zuhörer mit Groove und Stil, wenn er instrumentale Kompositionen in Genres wie:",
+      "and_more": "und mehr",
+      "part2": "Mit dem Saxophon offenbart er in jedem Stück neue Facetten des musikalischen Erlebens, ohne sich stilistisch einzuengen. Jede Melodie wird neu interpretiert und jeder Track einzigartig gemacht.",
+      "part3": "Das Repertoire von mFly ist ein Spiegel seines musikalischen Geschmacks und seiner Lieblingssongs, die ihn auf seinem kreativen Weg inspirieren.",
+      "mission": "Die Botschaft seiner Musik: Schönheit mit der Welt teilen und authentisch bleiben."
+    }
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Senden Sie eine Auftrittsanfrage oder kontaktieren Sie ihn direkt.",
+    "description": "Buchen Sie einen Auftritt oder kontaktieren Sie mich direkt.",
     "name": "Ihr Name",
     "email": "Ihre E-Mail",
     "message": "Nachricht",
     "submit": "Senden",
-    "success": "Danke! Ihre Nachricht wurde gesendet."
+    "success": "Vielen Dank! Ihre Nachricht wurde gesendet."
   },
   "gallery": {
-    "title": "Galerie"
+    "title": "Galerie",
+    "photo_label": "Foto {{number}}"
   },
   "nav": {
     "about": "Über mich",

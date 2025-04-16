@@ -8,11 +8,13 @@ i18n.use(initReactI18next).init({
   resources: {
     ru: { translation: ru },
     en: { translation: en },
-    de: { translation: de }
+    de: { translation: de },
   },
-  lng: "ru", // výchozí jazyk
+  lng: "ru",
   fallbackLng: "ru",
-  interpolation: { escapeValue: false }
+  interpolation: {
+    escapeValue: false,
+  },
 });
 
 export default i18n;

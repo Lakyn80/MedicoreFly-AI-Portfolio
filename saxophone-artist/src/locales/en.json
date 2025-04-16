@@ -6,16 +6,22 @@
   },
   "music": {
     "title": "Music",
-    "description": "Enjoy live recordings and studio tracks by Adam Nukorev.",
+    "description": "Enjoy live performances and studio tracks by Adam Nukorev.",
     "audio_not_supported": "Your browser does not support audio playback."
   },
   "about": {
     "title": "About Me",
-    "text": "MedicoreFly - saxophonist, multi-instrumentalist, session musician. A person who has devoted himself to music completely, enveloping his listeners with a wave of groove and style, performing instrumental compositions in genres such as Groove funk, Jazz standard, Acid jazz, Lounge, RnB, City Pop, Blues, and more. Playing the saxophone, he reveals a new facet of experiencing music in each composition, not limiting himself in the musical space, rethinking each melody, making every track unique. The repertoire of mFly is a complete reflection of his musical taste and playlist of favorite songs that inspire him on his creative journey, as the main message of mFly's music is to share beauty with the world and be yourself."
+    "text": {
+      "part1": "MedicoreFly is a saxophonist, multi-instrumentalist, and session musician. A person fully devoted to music, he immerses his audience in a wave of groove and style, performing instrumental compositions in genres:",
+      "and_more": "and more",
+      "part2": "Through the saxophone, he reveals new facets of musical perception in each composition, unconfined by genre boundaries, reimagining each melody and making every track unique.",
+      "part3": "The repertoire of mFly is a complete reflection of his musical taste and personal playlist of favorite songs that inspire his creative journey.",
+      "mission": "The main message behind mFly’s music is to share beauty with the world and stay true to oneself."
+    }
   },
   "contact": {
     "title": "Contact",
-    "description": "Submit a performance request or contact directly.",
+    "description": "Submit a booking request or get in touch directly.",
     "name": "Your name",
     "email": "Your email",
     "message": "Message",
@@ -23,7 +29,8 @@
     "success": "Thank you! Your message has been sent."
   },
   "gallery": {
-    "title": "Gallery"
+    "title": "Gallery",
+    "photo_label": "Photo {{number}}"
   },
   "nav": {
     "about": "About",

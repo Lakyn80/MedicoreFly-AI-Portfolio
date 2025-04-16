@@ -1,32 +1,51 @@
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import ImageModal from "./ImageModal";
 
 export default function GallerySection() {
   const { t } = useTranslation();
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  // Vygeneruj pole 13 obrázků
-  const images = Array.from({ length: 13 }, (_, i) => `sax_foto_${i + 1}.jpg`);
+  const images = Array.from(
+    { length: 13 },
+    (_, i) => `/images/gallery/sax_foto_${i + 1}.jpg`
+  );
+
+  const openModal = (src) => setSelectedImage(src);
+  const closeModal = () => setSelectedImage(null);
 
   return (
-    <section id="gallery" className="bg-gray-900 text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10">
-          {t("gallery.title")}
-        </h2>
-        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {images.map((img, index) => (
+    <section
+      id="gallery"
+      className="scroll-mt-24 px-6 py-12 bg-black text-white"
+    >
+      <h2 className="text-4xl font-bold text-center text-amber-500 mb-10 font-[Cinzel]">
+        {t("gallery.title")}
+      </h2>
+
+      <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+        <div className="flex gap-4 w-max">
+          {images.map((src, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-lg shadow-md transform transition duration-300 hover:scale-105"
+              onClick={() => openModal(src)}
+              className="relative w-[280px] h-[400px] flex-shrink-0 rounded-lg overflow-hidden cursor-pointer group"
             >
               <img
-                src={`/images/gallery/${img}`}
-                alt={`sax-gallery-${index + 1}`}
-                className="w-full h-full object-cover"
+                src={src}
+                alt={t("gallery.photo_label", { number: index + 1 })}
+                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           ))}
         </div>
       </div>
+
+      <ImageModal
+        isOpen={!!selectedImage}
+        imageSrc={selectedImage}
+        onClose={closeModal}
+      />
     </section>
   );
 }
