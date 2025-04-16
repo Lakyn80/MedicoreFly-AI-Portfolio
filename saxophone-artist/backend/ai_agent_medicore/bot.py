@@ -1,14 +1,37 @@
 import os
+import sys
 import logging
 import requests
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, CommandHandler, CallbackQueryHandler, filters
+from telegram.ext import (
+    ApplicationBuilder,
+    ContextTypes,
+    MessageHandler,
+    CommandHandler,
+    CallbackQueryHandler,
+    filters,
+)
 from dotenv import load_dotenv
 
-load_dotenv()
+# 🔐 Načtení .env z root složky projektu (dva adresáře výš)
+dotenv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.env"))
+load_dotenv(dotenv_path)
 
+# 🔑 Proměnné z .env
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+
+# 🚨 Ověření přítomnosti proměnných
+missing = []
+if not TELEGRAM_TOKEN:
+    missing.append("TELEGRAM_TOKEN")
+if not DEEPSEEK_API_KEY:
+    missing.append("DEEPSEEK_API_KEY")
+
+if missing:
+    print(f"\n❌ ERROR: Missing environment variables: {', '.join(missing)}")
+    print("👉 Please check your .env file and try again.\n")
+    sys.exit(1)
 
 logging.basicConfig(level=logging.INFO)
 
@@ -24,10 +47,10 @@ def ask_deepseek(prompt):
         "messages": [
             {
                 "role": "system",
-                "content": "You are a helpful assistant for saxophonist Adam Nukorev. Answer questions in a clear, elegant style."
+                "content": "You are a helpful assistant for saxophonist Adam Nukorev. Answer questions in a clear, elegant style.",
             },
-            {"role": "user", "content": prompt}
-        ]
+            {"role": "user", "content": prompt},
+        ],
     }
     response = requests.post(url, headers=headers, json=data)
     response.raise_for_status()
@@ -43,9 +66,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response = ask_deepseek(user_message)
         await update.message.reply_text(
             response,
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("📩 Kontaktovat Adama", callback_data="contact_adam")
-            ]])
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("📩 Kontaktovat Adama", callback_data="contact_adam")]]
+            ),
         )
     except Exception as e:
         logging.error(f"Chyba při dotazu na DeepSeek: {e}")
@@ -70,7 +93,7 @@ async def handle_contact_adam(update: Update, context: ContextTypes.DEFAULT_TYPE
     try:
         await context.bot.send_message(
             chat_id=admin_id,
-            text=f"📨 Uživatel {user.full_name} (@{user.username}) chce kontaktovat Adama.\n\nZpráva:\n{query.message.text}"
+            text=f"📨 Uživatel {user.full_name} (@{user.username}) chce kontaktovat Adama.\n\nZpráva:\n{query.message.text}",
         )
         await query.edit_message_text("✅ Požadavek na spojení byl odeslán. Adam se vám brzy ozve.")
     except Exception as e:
@@ -83,9 +106,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info(f"/start od uživatele ID: {user_id}")
     await update.message.reply_text(
         "🎷 Привет! Я AI-помощник саксофониста Адама Нукорева. Задайте вопрос или нажмите кнопку ниже для связи.",
-        reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("📩 Связаться с Адамом", callback_data="contact_adam")
-        ]])
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("📩 Связаться с Адамом", callback_data="contact_adam")]]
+        ),
     )
 
 # 🚀 Spuštění bota

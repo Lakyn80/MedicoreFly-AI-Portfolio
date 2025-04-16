@@ -8,6 +8,7 @@ import AboutSection from "./components/AboutSection";
 import MusicSection from "./components/MusicSection";
 import GallerySection from "./components/GallerySection";
 import ContactSection from "./components/ContactSection";
+import ChatWidget from "./components/ChatWidget";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <MusicSection />
       <GallerySection />
       <ContactSection />
+      <ChatWidget />
     </div>
   );
 }
