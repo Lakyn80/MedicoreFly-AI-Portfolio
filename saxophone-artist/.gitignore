@@ -1,5 +1,9 @@
-# Logs
-logs
+# ⚛️ React / Vite / Node.js
+node_modules/
+dist/
+dist-ssr/
+build/
+*.local
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +11,43 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# 🐍 Python / Flask
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+env/
+venv/
+ENV/
+.venv/
+*.sqlite3
+*.db
+instance/
+*.pkl
 
-# Editor directories and files
+# 🔐 Secrets
+.env
+*.key
+*.pem
+*.crt
+*.json (jen pokud máš např. credentials.json apod.)
+
+# 📁 IDE & Editor files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.bak
+*.tmp
+
+# 📄 Logy
+logs/
+*.log
+
+# 🤖 Admin ID pro Telegram bota
+admin_id.txt
